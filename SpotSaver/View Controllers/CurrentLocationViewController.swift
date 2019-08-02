@@ -39,7 +39,16 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             return
         }
 
-        startLocationManager()
+        // If currently updating then stop
+        if updatingLocation {
+            stopLocationManager()
+        }
+        else {
+            location = nil
+            lastLocationError = nil
+            startLocationManager()
+        }
+
         updateLabels()
     }
 
@@ -50,6 +59,15 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     }
 
     // MARK: - Methods
+    func configureGetButton() {
+        if updatingLocation {
+            getMyLocationButton.setTitle("Stop", for: .normal)
+        }
+        else {
+            getMyLocationButton.setTitle("Get My Location", for: .normal)
+        }
+    }
+
     func showLocationServicesDeniedAlert() {
         let alert = UIAlertController(title: "Location Services Disabled", message: "Please enable location services for this app in Settings.", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default)
@@ -93,6 +111,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
 
         }
 
+        configureGetButton()
     }
 
 
@@ -134,8 +153,30 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         let newLocation = locations.last!
         print("didUpdateLocations \(newLocation)")
 
-        location = newLocation
-        lastLocationError = nil
+        // Ignore old results
+        if newLocation.timestamp.timeIntervalSinceNow < -5 {
+            return
+        }
+        // Ignore invalid measurements
+        if newLocation.horizontalAccuracy < 0 {
+            return
+        }
+        // NOTE: Larger accuracy values = less accurate
+        // If location == nil -> First measurement we are taking
+        if location == nil || location!.horizontalAccuracy > newLocation.horizontalAccuracy {
+
+            // Store the result
+            lastLocationError = nil
+            location = newLocation
+            // We obtained a good result so we can stop updating and draining the battery.
+            if newLocation.horizontalAccuracy <= locationManager.desiredAccuracy {
+                print("*** We're done!")
+                stopLocationManager()
+            }
+
+            updateLabels()
+
+        }
         updateLabels()
     }
 
