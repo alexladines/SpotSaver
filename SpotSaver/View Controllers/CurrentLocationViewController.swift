@@ -9,6 +9,9 @@
 import UIKit
 import CoreLocation
 
+// For Info.plist -> Need Privacy - Location When In Usage Description
+// For Info.plist ->
+
 class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate {
 
     // MARK: - Properties
@@ -16,6 +19,12 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     var location: CLLocation?
     var updatingLocation = false
     var lastLocationError: Error?
+
+    // Reverse Geocoding
+    let geocoder = CLGeocoder()
+    var placemark: CLPlacemark?
+    var performingReverseGeocoding = false
+    var lastGeocodingError: Error?
 
     // MARK: - IBOutlets
     @IBOutlet weak var messageLabel: UILabel!
@@ -46,6 +55,8 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         else {
             location = nil
             lastLocationError = nil
+            placemark = nil
+            lastGeocodingError = nil
             startLocationManager()
         }
 
@@ -81,6 +92,19 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             longitudeLabel.text = String(format: "%.8f", location.coordinate.longitude)
             tagLocationButton.isHidden = false
             messageLabel.text = ""
+
+            if let placemark = placemark {
+                addressLabel.text = string(from: placemark)
+            }
+            else if performingReverseGeocoding {
+                addressLabel.text = "Searching for Address..."
+            }
+            else if lastGeocodingError != nil {
+                addressLabel.text = "Error Finding Address"
+            }
+            else {
+                addressLabel.text = "No Address Found"
+            }
         }
         else {
             latitudeLabel.text = ""
@@ -114,6 +138,42 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         configureGetButton()
     }
 
+    func string(from placemark: CLPlacemark) -> String {
+        var line1 = ""
+        // House Number
+        if let s = placemark.subThoroughfare {
+            line1 += s + " "
+        }
+
+        // Street Name
+        if let s = placemark.thoroughfare {
+            line1 += s
+        }
+
+        print(line1)
+
+        var line2 = ""
+        // City
+        if let s = placemark.locality {
+            line2 += s + " "
+        }
+        // State
+        if let s = placemark.administrativeArea {
+            line2 += s + " "
+        }
+        // Zip Code
+        if let s = placemark.postalCode {
+            line2 += s
+
+        }
+
+        print(line2)
+
+        // Attach them
+        return line1 + "\n" + line2
+
+
+    }
 
     func startLocationManager() {
         if CLLocationManager.locationServicesEnabled() {
@@ -161,6 +221,14 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         if newLocation.horizontalAccuracy < 0 {
             return
         }
+
+        // Calculate distance from new reading and previous reading
+        // If first reading -> huge distance!
+        var distance = CLLocationDistance(Double.greatestFiniteMagnitude)
+        if let location = location {
+            distance = newLocation.distance(from: location)
+        }
+
         // NOTE: Larger accuracy values = less accurate
         // If location == nil -> First measurement we are taking
         if location == nil || location!.horizontalAccuracy > newLocation.horizontalAccuracy {
@@ -172,12 +240,49 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             if newLocation.horizontalAccuracy <= locationManager.desiredAccuracy {
                 print("*** We're done!")
                 stopLocationManager()
+                // Force a reverse geocoding for final location as its the most accurate one
+                if distance > 0 {
+                    performingReverseGeocoding = false
+                }
             }
 
             updateLabels()
 
+            if !performingReverseGeocoding {
+                print("*** Going to geocode")
+
+                performingReverseGeocoding = true
+
+                geocoder.reverseGeocodeLocation(newLocation) { (placemarks, error) in
+                    self.lastGeocodingError = error
+                    if error == nil, let p = placemarks, !p.isEmpty {
+                        self.placemark = p.last!
+                    }
+                    else {
+                        self.placemark = nil
+                    }
+
+                    self.performingReverseGeocoding = false
+                    self.updateLabels()
+                }
+            }
+            // If distance is not very different and it's been > 10 seconds since orginal reading then we will just stop. This is necessary to not drain battery of devices after multiple tries.
+            else if distance < 1 {
+                let timeInterval = newLocation.timestamp.timeIntervalSince(location!.timestamp)
+
+                if timeInterval > 10 {
+                    print("*** Force done!")
+                    stopLocationManager()
+                    updateLabels()
+                }
+            }
+
         }
         updateLabels()
     }
+
+
+
+
 
 }
