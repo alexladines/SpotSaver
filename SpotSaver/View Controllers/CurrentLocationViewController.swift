@@ -203,6 +203,13 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     }
 
     // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TagLocation" {
+            let vc = segue.destination as! LocationDetailsTableViewController
+            vc.coordinate = location!.coordinate
+            vc.placemark = placemark
+        }
+    }
 
     // MARK: - Data Persistance
 
