@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F11B14422F6993000F6D17F /* LocationDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F11B14322F6993000F6D17F /* LocationDetailsTableViewController.swift */; };
 		0F1EE42B22F3BC8C00018AA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1EE42A22F3BC8C00018AA5 /* AppDelegate.swift */; };
 		0F1EE43022F3BC8C00018AA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F1EE42E22F3BC8C00018AA5 /* Main.storyboard */; };
 		0F1EE43322F3BC8C00018AA5 /* SpotSaver.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F1EE43122F3BC8C00018AA5 /* SpotSaver.xcdatamodeld */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F11B14322F6993000F6D17F /* LocationDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsTableViewController.swift; sourceTree = "<group>"; };
 		0F1EE42722F3BC8C00018AA5 /* SpotSaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotSaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F1EE42A22F3BC8C00018AA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F1EE42F22F3BC8C00018AA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				0F1EE44622F3BFE300018AA5 /* CurrentLocationViewController.swift */,
+				0F11B14322F6993000F6D17F /* LocationDetailsTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F1EE43322F3BC8C00018AA5 /* SpotSaver.xcdatamodeld in Sources */,
+				0F11B14422F6993000F6D17F /* LocationDetailsTableViewController.swift in Sources */,
 				0F1EE44722F3BFE300018AA5 /* CurrentLocationViewController.swift in Sources */,
 				0F1EE42B22F3BC8C00018AA5 /* AppDelegate.swift in Sources */,
 			);
