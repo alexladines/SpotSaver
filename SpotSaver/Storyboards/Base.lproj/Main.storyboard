@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="glw-KF-v1k">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G3i-At-miV">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -72,12 +72,16 @@
                                 <rect key="frame" x="163" y="453" width="88" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Tag Location"/>
+                                <connections>
+                                    <segue destination="wMq-2E-3zi" kind="show" identifier="TagLocation" id="043-HY-w12"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Wdk-1l-s10"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Tag" id="EAy-uH-7bB"/>
+                    <navigationItem key="navigationItem" id="R9X-Se-aYe"/>
                     <connections>
                         <outlet property="addressLabel" destination="rox-zA-qNd" id="C6g-Bc-TWo"/>
                         <outlet property="getMyLocationButton" destination="Stl-FV-4is" id="sAC-2j-8if"/>
@@ -89,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gol-sa-jDI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="976.81159420289862" y="-37.5"/>
+            <point key="canvasLocation" x="2720" y="13"/>
         </scene>
         <!--Tag Location-->
         <scene sceneID="Bfy-RM-xdr">
@@ -273,13 +277,29 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Tag Location" id="bgb-9q-CYN">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Hd2-ZP-Ss2"/>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="w2R-hG-ldk"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Hd2-ZP-Ss2">
+                            <connections>
+                                <action selector="cancelBarButtonItemPressed:" destination="wMq-2E-3zi" id="OAq-zu-U2V"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="w2R-hG-ldk">
+                            <connections>
+                                <action selector="doneBarButtonItemPressed:" destination="wMq-2E-3zi" id="Ssa-Q3-qtX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addressLabel" destination="HIQ-UV-mrq" id="Hcj-If-F6d"/>
+                        <outlet property="categoryLabel" destination="ZX7-ft-Z1U" id="D5K-EA-k2F"/>
+                        <outlet property="dateLabel" destination="uvk-Vu-hoM" id="4dT-QC-P4L"/>
+                        <outlet property="descriptionTextView" destination="EuM-FM-vpp" id="L4J-3r-fBg"/>
+                        <outlet property="latitudeLabel" destination="LRG-Kr-bFR" id="yY0-do-fTD"/>
+                        <outlet property="longitudeLabel" destination="byY-3B-Wpk" id="JBl-cJ-va0"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LaI-1Q-u8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2918.840579710145" y="35.491071428571423"/>
+            <point key="canvasLocation" x="3551" y="13"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Jqe-nr-HXs">
@@ -292,17 +312,18 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Xyu-PG-aiM" kind="relationship" relationship="viewControllers" id="2hL-KS-Lbh"/>
+                        <segue destination="glw-KF-v1k" kind="relationship" relationship="viewControllers" id="1bz-6r-MxL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ct0-RR-3W4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="113.04347826086958" y="109.82142857142857"/>
+            <point key="canvasLocation" x="1019" y="13"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="m4y-mA-KU0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="glw-KF-v1k" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="iQU-JQ-dn3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0mc-rB-bkw">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -310,12 +331,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="wMq-2E-3zi" kind="relationship" relationship="rootViewController" id="bJq-D1-TdS"/>
+                        <segue destination="Xyu-PG-aiM" kind="relationship" relationship="rootViewController" id="0NP-2v-23k"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lgf-vi-8G0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2008.6956521739132" y="35.491071428571423"/>
+            <point key="canvasLocation" x="1849" y="13"/>
         </scene>
     </scenes>
 </document>
