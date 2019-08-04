@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import CoreLocation
 
 class LocationDetailsTableViewController: UITableViewController {
     // MARK: - Properties
+    var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+    var placemark: CLPlacemark?
 
     // MARK: - IBOutlets
     @IBOutlet weak var descriptionTextView: UITextView!
