@@ -35,7 +35,14 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
     // MARK: - IBActions
 
     @IBAction func doneBarButtonItemPressed(_ sender: UIBarButtonItem) {
-        navigationController?.popViewController(animated: true)
+        let hudView = HudView.hud(inView: navigationController!.view, animated: true)
+        hudView.text = "Tagged"
+
+        // Close screen after 0.6 seconds
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+            hudView.hide()
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 
     @IBAction func cancelBarButtonItemPressed(_ sender: UIBarButtonItem) {
@@ -64,6 +71,11 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
         print(categoryName)
 
         dateLabel.text = format(date: Date())
+
+        // Gesture Recognizer for keyboard
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        gestureRecognizer.cancelsTouchesInView = false
+        tableView.addGestureRecognizer(gestureRecognizer)
     }
 
     // MARK: - Methods
@@ -94,6 +106,25 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
         return dateFormatter.string(from: date)
     }
 
+    @objc func hideKeyboard(_ gestureRecognizer: UIGestureRecognizer) {
+        let point = gestureRecognizer.location(in: tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        // Check if user selected a cell other than the text view
+        if let indexPath = indexPath {
+            if indexPath.section != 0 && indexPath.row != 0 {
+                descriptionTextView.resignFirstResponder()
+            }
+        }
+        // User tapped on another point on the screen
+        else {
+            descriptionTextView.resignFirstResponder()
+        }
+
+        descriptionTextView.resignFirstResponder()
+
+        // Also on storyboard -> Table View -> Dismiss keyboard when scrolling.
+    }
+
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PickCategory" {
@@ -108,6 +139,23 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
     // MARK: - UITableViewDataSource
 
     // MARK: - UITableViewDelegate
+
+    // Only taps in the first 2 sections are valid
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if indexPath.section == 0 || indexPath.section == 1 {
+            return indexPath
+        }
+        else {
+            return nil
+        }
+    }
+
+    // Make textfield active if user taps anywhere in the cell
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 && indexPath.row == 0 {
+            descriptionTextView.becomeFirstResponder()
+        }
+    }
 
     // MARK: - CategoryPickerTableViewControllerDelegate
     func categoryPickerTableViewController(_ controller: CategoryPickerTableViewController, didFinishSelecting category: String) {

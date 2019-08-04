@@ -32,10 +32,6 @@ class CategoryPickerTableViewController: UITableViewController {
     var selectedIndexPath = IndexPath()
     weak var delegate: CategoryPickerTableViewControllerDelegate?
 
-    // MARK: - IBOutlets
-
-    // MARK: - IBActions
-
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,12 +45,6 @@ class CategoryPickerTableViewController: UITableViewController {
         }
 
     }
-
-    // MARK: - Methods
-
-    // MARK: - Navigation
-
-    // MARK: - Data Persistance
 
     // MARK: - UITableViewDataSource
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
