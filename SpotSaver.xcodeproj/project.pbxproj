@@ -20,6 +20,7 @@
 		0F46057922F9D475004B1C29 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F46057722F9D475004B1C29 /* Location+CoreDataProperties.swift */; };
 		0F46057C22F9DD83004B1C29 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F46057B22F9DD83004B1C29 /* Functions.swift */; };
 		0F46057E22F9F42E004B1C29 /* DisplayLocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F46057D22F9F42E004B1C29 /* DisplayLocationsTableViewController.swift */; };
+		0F46058022F9FFA7004B1C29 /* DisplayLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F46057F22F9FFA7004B1C29 /* DisplayLocationTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		0F46057722F9D475004B1C29 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0F46057B22F9DD83004B1C29 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		0F46057D22F9F42E004B1C29 /* DisplayLocationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayLocationsTableViewController.swift; sourceTree = "<group>"; };
+		0F46057F22F9FFA7004B1C29 /* DisplayLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayLocationTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				0F11B14722F7764500F6D17F /* HudView.swift */,
+				0F46057F22F9FFA7004B1C29 /* DisplayLocationTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F46058022F9FFA7004B1C29 /* DisplayLocationTableViewCell.swift in Sources */,
 				0F46057922F9D475004B1C29 /* Location+CoreDataProperties.swift in Sources */,
 				0F46057822F9D475004B1C29 /* Location+CoreDataClass.swift in Sources */,
 				0F46057C22F9DD83004B1C29 /* Functions.swift in Sources */,
