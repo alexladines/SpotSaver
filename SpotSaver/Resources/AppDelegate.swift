@@ -12,6 +12,21 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    // MARK: - Core Data
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "SpotSaver")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error {
+                fatalError("Could not load data store: \(error)")
+            }
+        })
+        return container
+    }()
+
+    lazy var managedObjectContext: NSManagedObjectContext = persistentContainer.viewContext
+
+
+    // MARK: - UIApplicationDelegate
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -20,9 +35,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Get reference to the Managed Object Context
         let tabVC = window?.rootViewController as! UITabBarController
         if let tabVCs = tabVC.viewControllers {
-            let navVC = tabVCs[0] as! UINavigationController
-            let vc = navVC.viewControllers.first as! CurrentLocationViewController
-            vc.managedObjectContext = managedObjectContext
+            // Tab #1
+            var navVC = tabVCs[0] as! UINavigationController
+            let vc1 = navVC.viewControllers.first as! CurrentLocationViewController
+            vc1.managedObjectContext = managedObjectContext
+
+            // Tab #2
+            navVC = tabVCs[1] as! UINavigationController
+            let vc2 = navVC.viewControllers.first as! DisplayLocationsTableViewController
+            vc2.managedObjectContext = managedObjectContext
         }
 
         print(applicationDocumentDirectory)
@@ -56,18 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
-    // MARK: - Core Data
-    lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "SpotSaver")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error {
-                fatalError("Could not load data store: \(error)")
-            }
-        })
-        return container
-    }()
 
-    lazy var managedObjectContext: NSManagedObjectContext = persistentContainer.viewContext
 
     // MARK: - Helper
     func listenForFatalCoreDataNotifications() {
