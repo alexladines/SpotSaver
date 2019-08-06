@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import CoreData
 
 // For Info.plist -> Need Privacy - Location When In Usage Description
 // For Info.plist ->
@@ -19,6 +20,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     var location: CLLocation?
     var updatingLocation = false
     var lastLocationError: Error?
+    var managedObjectContext: NSManagedObjectContext!
 
     // Reverse Geocoding
     let geocoder = CLGeocoder()
@@ -208,6 +210,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             let vc = segue.destination as! LocationDetailsTableViewController
             vc.coordinate = location!.coordinate
             vc.placemark = placemark
+            vc.managedObjectContext = managedObjectContext
         }
     }
 

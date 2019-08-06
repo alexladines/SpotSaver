@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import CoreData
 
 // lazy creation to not use too mucb battery
 private let dateFormatter: DateFormatter = {
@@ -23,6 +24,7 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
     var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     var placemark: CLPlacemark?
     var categoryName = "No Category"
+    var managedObjectContext: NSManagedObjectContext!
 
     // MARK: - IBOutlets
     @IBOutlet weak var descriptionTextView: UITextView!
