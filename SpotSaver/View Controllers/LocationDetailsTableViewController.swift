@@ -25,6 +25,7 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
     var placemark: CLPlacemark?
     var categoryName = "No Category"
     var managedObjectContext: NSManagedObjectContext!
+    var date = Date()
 
     // MARK: - IBOutlets
     @IBOutlet weak var descriptionTextView: UITextView!
@@ -40,10 +41,27 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
         let hudView = HudView.hud(inView: navigationController!.view, animated: true)
         hudView.text = "Tagged"
 
-        // Close screen after 0.6 seconds
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
-            hudView.hide()
-            self.navigationController?.popViewController(animated: true)
+        // Use Core Data init method
+        let location = Location(context: managedObjectContext)
+        // Set properties
+        location.locationDescription = descriptionTextView.text
+        location.category = categoryName
+        location.latitude = coordinate.latitude
+        location.longitude = coordinate.longitude
+        location.date = date
+        location.placemark = placemark
+
+        // Save object context
+        do {
+            try managedObjectContext.save()
+            // Close screen after 0.6 seconds
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                hudView.hide()
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+        catch {
+            fatalCoreDataError(error)
         }
     }
 
@@ -72,7 +90,7 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
         print(categoryLabel.text!)
         print(categoryName)
 
-        dateLabel.text = format(date: Date())
+        dateLabel.text = format(date: date)
 
         // Gesture Recognizer for keyboard
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))

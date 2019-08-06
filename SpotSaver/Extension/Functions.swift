@@ -13,3 +13,12 @@ let applicationDocumentDirectory: URL = {
     let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     return paths[0]
 }()
+
+// Catching Save Errors from Core Data
+let CoreDataSaveFailedNotification = Notification.Name(rawValue: "CoreDataSaveFailedNotification")
+
+// Output to console, then send notification expecting some object to listen
+func fatalCoreDataError(_ error: Error) {
+    print("*** Fatal error: \(error)")
+    NotificationCenter.default.post(name: CoreDataSaveFailedNotification, object: nil)
+}

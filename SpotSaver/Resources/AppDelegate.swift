@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             vc.managedObjectContext = managedObjectContext
         }
 
+        print(applicationDocumentDirectory)
+        listenForFatalCoreDataNotifications()
         return true
     }
 
@@ -67,5 +69,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     lazy var managedObjectContext: NSManagedObjectContext = persistentContainer.viewContext
 
+    // MARK: - Helper
+    func listenForFatalCoreDataNotifications() {
+        // 1 Be notified whenever a CoreDataSaveFailedNotification is posted
+        NotificationCenter.default.addObserver(forName: CoreDataSaveFailedNotification, object: nil, queue: OperationQueue.main) { (notification) in
+
+            let message =
+            """
+            There was a fatal error in the app and it cannot continue.
+            Press OK to terminate the app. Sorry for the inconvenience.
+            """
+
+            let alert = UIAlertController(title: "Internal Error", message: message, preferredStyle: .alert)
+
+            // Terminate the app
+            let action = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                let exception = NSException(name: NSExceptionName.internalInconsistencyException, reason: "Fatal Core Data Error", userInfo: nil)
+                exception.raise()
+            })
+
+            alert.addAction(action)
+
+            // 5
+            let tabVC = self.window!.rootViewController!
+            tabVC.present(alert, animated: true)
+        }
+    }
 }
 
