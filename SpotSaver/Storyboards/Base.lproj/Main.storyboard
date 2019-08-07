@@ -171,6 +171,39 @@
             </objects>
             <point key="canvasLocation" x="1833" y="743"/>
         </scene>
+        <!--Map-->
+        <scene sceneID="SH5-t4-ldz">
+            <objects>
+                <viewController id="wBR-6a-f2O" customClass="MapViewController" customModule="SpotSaver" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8BR-dU-gCV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g4B-b3-W9H">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="g4B-b3-W9H" firstAttribute="trailing" secondItem="EaJ-zE-ncD" secondAttribute="trailing" id="Cua-i1-ZHi"/>
+                            <constraint firstItem="g4B-b3-W9H" firstAttribute="top" secondItem="8BR-dU-gCV" secondAttribute="top" id="XlP-Ka-ud5"/>
+                            <constraint firstItem="g4B-b3-W9H" firstAttribute="leading" secondItem="EaJ-zE-ncD" secondAttribute="leading" id="sco-cC-ljp"/>
+                            <constraint firstAttribute="bottom" secondItem="g4B-b3-W9H" secondAttribute="bottom" id="uwX-s6-Aro"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="EaJ-zE-ncD"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Map" id="W19-rz-H0t">
+                        <barButtonItem key="leftBarButtonItem" title="Locations" id="KMr-x2-0GH"/>
+                        <barButtonItem key="rightBarButtonItem" title="User" id="MGX-U2-0y6"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="g4B-b3-W9H" id="rYg-cn-Da1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Dg-Br-P55" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2771.0144927536235" y="1449.7767857142856"/>
+        </scene>
         <!--Tag Location-->
         <scene sceneID="Bfy-RM-xdr">
             <objects>
@@ -443,6 +476,7 @@
                     <connections>
                         <segue destination="glw-KF-v1k" kind="relationship" relationship="viewControllers" id="1bz-6r-MxL"/>
                         <segue destination="pKY-Tj-0cc" kind="relationship" relationship="viewControllers" id="M8I-Jx-32J"/>
+                        <segue destination="iaD-eJ-E5w" kind="relationship" relationship="viewControllers" id="fhb-nY-5hL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ct0-RR-3W4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -467,6 +501,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lgf-vi-8G0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1849" y="13"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="UcB-Pf-lli">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iaD-eJ-E5w" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Map" id="guo-RU-RCW"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="snE-2S-AZN">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wBR-6a-f2O" kind="relationship" relationship="rootViewController" id="ZuQ-9W-3Vk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1HE-ck-SdH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1860.8695652173915" y="1449.7767857142856"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

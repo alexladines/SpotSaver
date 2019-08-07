@@ -21,6 +21,8 @@
 		0F46057C22F9DD83004B1C29 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F46057B22F9DD83004B1C29 /* Functions.swift */; };
 		0F46057E22F9F42E004B1C29 /* DisplayLocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F46057D22F9F42E004B1C29 /* DisplayLocationsTableViewController.swift */; };
 		0F46058022F9FFA7004B1C29 /* DisplayLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F46057F22F9FFA7004B1C29 /* DisplayLocationTableViewCell.swift */; };
+		0F46058322FA6077004B1C29 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F46058222FA6077004B1C29 /* MapKit.framework */; };
+		0F46058522FA65F3004B1C29 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F46058422FA65F3004B1C29 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		0F46057B22F9DD83004B1C29 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		0F46057D22F9F42E004B1C29 /* DisplayLocationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayLocationsTableViewController.swift; sourceTree = "<group>"; };
 		0F46057F22F9FFA7004B1C29 /* DisplayLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayLocationTableViewCell.swift; sourceTree = "<group>"; };
+		0F46058222FA6077004B1C29 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		0F46058422FA65F3004B1C29 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F46058322FA6077004B1C29 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +63,7 @@
 			children = (
 				0F1EE42922F3BC8C00018AA5 /* SpotSaver */,
 				0F1EE42822F3BC8C00018AA5 /* Products */,
+				0F46058122FA6077004B1C29 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +114,7 @@
 				0F11B14322F6993000F6D17F /* LocationDetailsTableViewController.swift */,
 				0F11B14522F7592E00F6D17F /* CategoryPickerTableViewController.swift */,
 				0F46057D22F9F42E004B1C29 /* DisplayLocationsTableViewController.swift */,
+				0F46058422FA65F3004B1C29 /* MapViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -155,6 +162,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		0F46058122FA6077004B1C29 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0F46058222FA6077004B1C29 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -187,6 +202,11 @@
 				TargetAttributes = {
 					0F1EE42622F3BC8C00018AA5 = {
 						CreatedOnToolsVersion = 10.3;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -233,6 +253,7 @@
 				0F1EE43322F3BC8C00018AA5 /* SpotSaver.xcdatamodeld in Sources */,
 				0F11B14422F6993000F6D17F /* LocationDetailsTableViewController.swift in Sources */,
 				0F11B14822F7764500F6D17F /* HudView.swift in Sources */,
+				0F46058522FA65F3004B1C29 /* MapViewController.swift in Sources */,
 				0F1EE44722F3BFE300018AA5 /* CurrentLocationViewController.swift in Sources */,
 				0F46057E22F9F42E004B1C29 /* DisplayLocationsTableViewController.swift in Sources */,
 				0F11B14622F7592E00F6D17F /* CategoryPickerTableViewController.swift in Sources */,
