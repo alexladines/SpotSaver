@@ -44,6 +44,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             navVC = tabVCs[1] as! UINavigationController
             let vc2 = navVC.viewControllers.first as! DisplayLocationsTableViewController
             vc2.managedObjectContext = managedObjectContext
+            let _ = vc2.view // Force vc to load view immediately when app starts instead of delaying until you switch tabs
+            // The previous line fixes a huge bug.
+            // Reproduce the bug -> 1) Quit App 2) Run app and tag a new location 3) Switch to locations tab 4) location doesnt appear 5) crash
+            // Error message:  The persistent cache of section information does not match the current configuration.  You have illegally mutated the
+            // NSFetchedResultsController's fetch request, its predicate, or its sort
+            // descriptor without either disabling caching or using +deleteCacheWithName:
         }
 
         print(applicationDocumentDirectory)

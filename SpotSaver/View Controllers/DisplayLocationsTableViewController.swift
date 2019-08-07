@@ -21,13 +21,15 @@ class DisplayLocationsTableViewController: UITableViewController, NSFetchedResul
         let entity = Location.entity()
         fetchRequest.entity = entity
 
-        // Sort on the date, dates added first will appear first.
-        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
+        // Organize using category as header and date as ascending order
+        let sort1 = NSSortDescriptor(key: "category", ascending: true)
+        let sort2 = NSSortDescriptor(key: "date", ascending: true)
+        fetchRequest.sortDescriptors = [sort1, sort2]
 
         fetchRequest.fetchBatchSize = 20 // We can see about 20
 
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: "Locations")
+        // Group based on category
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: "category", cacheName: "Locations")
 
         fetchedResultsController.delegate = self
         return fetchedResultsController
@@ -40,6 +42,7 @@ class DisplayLocationsTableViewController: UITableViewController, NSFetchedResul
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = editButtonItem
         performFetch()
     }
 
@@ -73,6 +76,16 @@ class DisplayLocationsTableViewController: UITableViewController, NSFetchedResul
     // MARK: - Data Persistance
 
     // MARK: - UITableViewDataSource
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return fetchedResultsController.sections!.count
+    }
+
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let sectionInfo = fetchedResultsController.sections![section]
+        return sectionInfo.name
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = fetchedResultsController.sections![section]
         return sectionInfo.numberOfObjects
@@ -89,6 +102,18 @@ class DisplayLocationsTableViewController: UITableViewController, NSFetchedResul
     }
 
     // MARK: - UITableViewDelegate
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let location = fetchedResultsController.object(at: indexPath)
+            managedObjectContext.delete(location) // We don't delete the cell ourselves, calls a fetched delegate method
+            do {
+                try managedObjectContext.save()
+            }
+            catch {
+                fatalCoreDataError(error)
+            }
+        }
+    }
 
     // MARK: - NSFetchedResultsControllerDelegate
 
