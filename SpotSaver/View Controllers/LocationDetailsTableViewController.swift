@@ -27,6 +27,21 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
     var managedObjectContext: NSManagedObjectContext!
     var date = Date()
 
+    // For editing segue
+    var descriptionText = ""
+    var locationToEdit: Location? {
+        didSet {
+            if let location = locationToEdit {
+                descriptionText = location.locationDescription
+                categoryName = location.category
+                date = location.date
+                coordinate = CLLocationCoordinate2DMake(location.latitude, location.longitude)
+                placemark = location.placemark
+            }
+        }
+    }
+
+
     // MARK: - IBOutlets
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var categoryLabel: UILabel!
@@ -41,8 +56,17 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
         let hudView = HudView.hud(inView: navigationController!.view, animated: true)
         hudView.text = "Tagged"
 
-        // Use Core Data init method
-        let location = Location(context: managedObjectContext)
+        // Either get a location from Core Data or use the one from the Edit Segue
+        let location: Location
+        if let temp = locationToEdit {
+            hudView.text = "Updated"
+            location = temp
+        }
+        else {
+            hudView.text = "Tagged"
+            location = Location(context: managedObjectContext)
+        }
+
         // Set properties
         location.locationDescription = descriptionTextView.text
         location.category = categoryName
@@ -73,7 +97,12 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        descriptionTextView.text = ""
+        // Check if this was from the editing segue
+        if let location = locationToEdit {
+            title = "Edit Location"
+        }
+
+        descriptionTextView.text = descriptionText
         categoryLabel.text = ""
 
         latitudeLabel.text = String(format: "%.8f", coordinate.latitude)

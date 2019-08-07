@@ -139,6 +139,7 @@
                                 <connections>
                                     <outlet property="addressLabel" destination="uy6-S6-CW4" id="gvT-m1-3O2"/>
                                     <outlet property="descriptionLabel" destination="v5H-qS-OKd" id="shF-QA-YAJ"/>
+                                    <segue destination="wMq-2E-3zi" kind="show" identifier="EditLocation" id="nEu-xI-GSH"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -468,4 +469,7 @@
             <point key="canvasLocation" x="1849" y="13"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="nEu-xI-GSH"/>
+    </inferredMetricsTieBreakers>
 </document>
