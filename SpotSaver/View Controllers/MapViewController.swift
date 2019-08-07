@@ -7,15 +7,27 @@
 //
 
 import UIKit
+import CoreData
 import MapKit
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, MKMapViewDelegate {
     // MARK: - Properties
+    var managedObjectContext: NSManagedObjectContext!
 
     // MARK: - IBOutlets
     @IBOutlet weak var mapView: MKMapView!
 
     // MARK: - IBActions
+
+    //
+    @IBAction func rightBarButtonItemTapped() {
+        let region = MKCoordinateRegion(center: mapView.userLocation.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        mapView.setRegion(region, animated: true)
+    }
+
+    @IBAction func leftBarButtonItemTapped() {
+
+    }
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -27,5 +39,7 @@ class MapViewController: UIViewController {
     // MARK: - Navigation
 
     // MARK: - Data Persistance
+
+    // MARK: - MKMapViewDelegate
 
 }
