@@ -13,6 +13,7 @@ import MapKit
 class MapViewController: UIViewController, MKMapViewDelegate {
     // MARK: - Properties
     var managedObjectContext: NSManagedObjectContext!
+    var locations = [Location]()
 
     // MARK: - IBOutlets
     @IBOutlet weak var mapView: MKMapView!
