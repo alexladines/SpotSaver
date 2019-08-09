@@ -26,6 +26,17 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
     var categoryName = "No Category"
     var managedObjectContext: NSManagedObjectContext!
     var date = Date()
+    var image: UIImage? {
+        didSet {
+            if let image = image {
+                imageView.image = image
+                imageView.isHidden = false
+                addPhotoLabel.text = ""
+                imageHeight.constant = 260
+                tableView.reloadData()
+            }
+        }
+    }
 
     // For editing segue
     var descriptionText = ""
@@ -49,6 +60,10 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
     @IBOutlet weak var longitudeLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var addPhotoLabel: UILabel!
+    @IBOutlet weak var imageHeight: NSLayoutConstraint!
+
 
     // MARK: - IBActions
 
@@ -265,6 +280,8 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
 
     // MARK: - UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
+
         dismiss(animated: true, completion: nil)
     }
 

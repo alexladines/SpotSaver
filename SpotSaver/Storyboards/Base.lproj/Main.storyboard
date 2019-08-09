@@ -290,10 +290,20 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l1I-RT-2Sj">
+                                                    <rect key="frame" x="20" y="11" width="348" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="22" id="iq4-hs-aWH"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="jaH-Cg-FjB" firstAttribute="centerY" secondItem="rw7-c3-J6x" secondAttribute="centerY" id="9PW-iy-xJf"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="l1I-RT-2Sj" secondAttribute="trailing" id="Ani-D8-VTT"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="l1I-RT-2Sj" secondAttribute="bottom" id="BMP-hd-eHS"/>
+                                                <constraint firstItem="l1I-RT-2Sj" firstAttribute="top" secondItem="rw7-c3-J6x" secondAttribute="topMargin" id="FRu-Cd-ge6"/>
                                                 <constraint firstItem="jaH-Cg-FjB" firstAttribute="leading" secondItem="rw7-c3-J6x" secondAttribute="leadingMargin" id="Fa1-Bd-ZCI"/>
+                                                <constraint firstItem="l1I-RT-2Sj" firstAttribute="leading" secondItem="rw7-c3-J6x" secondAttribute="leadingMargin" id="bCG-Xw-oLl"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -423,10 +433,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addPhotoLabel" destination="jaH-Cg-FjB" id="Lqy-Wy-zQT"/>
                         <outlet property="addressLabel" destination="r8v-GH-i46" id="9HZ-sR-Z1d"/>
                         <outlet property="categoryLabel" destination="ZX7-ft-Z1U" id="D5K-EA-k2F"/>
                         <outlet property="dateLabel" destination="uvk-Vu-hoM" id="4dT-QC-P4L"/>
                         <outlet property="descriptionTextView" destination="EuM-FM-vpp" id="L4J-3r-fBg"/>
+                        <outlet property="imageHeight" destination="iq4-hs-aWH" id="Eaw-Ck-bXG"/>
+                        <outlet property="imageView" destination="l1I-RT-2Sj" id="AwX-g0-44e"/>
                         <outlet property="latitudeLabel" destination="LRG-Kr-bFR" id="yY0-do-fTD"/>
                         <outlet property="longitudeLabel" destination="byY-3B-Wpk" id="JBl-cJ-va0"/>
                     </connections>
