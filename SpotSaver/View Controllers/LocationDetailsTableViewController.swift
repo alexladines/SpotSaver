@@ -18,7 +18,7 @@ private let dateFormatter: DateFormatter = {
     return formatter
 }()
 
-class LocationDetailsTableViewController: UITableViewController, CategoryPickerTableViewControllerDelegate {
+class LocationDetailsTableViewController: UITableViewController, CategoryPickerTableViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     // MARK: - Properties
     var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
@@ -174,6 +174,52 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
         // Also on storyboard -> Table View -> Dismiss keyboard when scrolling.
     }
 
+    func takePhotoWithCamera() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .camera
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true)
+    }
+
+    func choosePhotoFromLibrary() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true)
+    }
+
+    func pickPhoto() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            showPhotoMenu()
+        }
+        else {
+            choosePhotoFromLibrary()
+        }
+    }
+
+    func showPhotoMenu() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+
+        let takePhotoAction = UIAlertAction(title: "Take Photo", style: .default, handler: { _ in
+            self.takePhotoWithCamera()
+        })
+
+        alert.addAction(takePhotoAction)
+
+        let libraryAction = UIAlertAction(title: "Choose From Library", style: .default, handler: { _ in
+            self.choosePhotoFromLibrary()
+        })
+
+        alert.addAction(libraryAction)
+
+        present(alert, animated: true)
+    }
+
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PickCategory" {
@@ -204,6 +250,10 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
         if indexPath.section == 0 && indexPath.row == 0 {
             descriptionTextView.becomeFirstResponder()
         }
+        else if indexPath.section == 1 && indexPath.row == 0 {
+            tableView.deselectRow(at: indexPath, animated: true)
+            pickPhoto()
+        }
     }
 
     // MARK: - CategoryPickerTableViewControllerDelegate
@@ -212,4 +262,14 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
         categoryLabel.text = categoryName
         navigationController?.popViewController(animated: true)
     }
+
+    // MARK: - UIImagePickerControllerDelegate
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        dismiss(animated: true, completion: nil)
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
 }
+
