@@ -140,6 +140,9 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         gestureRecognizer.cancelsTouchesInView = false
         tableView.addGestureRecognizer(gestureRecognizer)
+
+        // Listen for background notification
+        listenForBackgroundNotification()
     }
 
     // MARK: - Methods
@@ -233,6 +236,16 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
         alert.addAction(libraryAction)
 
         present(alert, animated: true)
+    }
+
+    func listenForBackgroundNotification() {
+        NotificationCenter.default.addObserver(forName: UIApplication.didEnterBackgroundNotification, object: nil, queue: OperationQueue.main) { _ in
+            if self.presentedViewController != nil {
+                self.dismiss(animated: false, completion: nil)
+            }
+
+            self.descriptionTextView.resignFirstResponder()
+        }
     }
 
     // MARK: - Navigation
