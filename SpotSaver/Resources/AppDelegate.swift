@@ -50,6 +50,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Error message:  The persistent cache of section information does not match the current configuration.  You have illegally mutated the
             // NSFetchedResultsController's fetch request, its predicate, or its sort
             // descriptor without either disabling caching or using +deleteCacheWithName:
+
+            // Tab #3
+            navVC = tabVCs[2] as! UINavigationController
+            let vc3 = navVC.viewControllers.first as! MapViewController
+            vc3.managedObjectContext = managedObjectContext
         }
 
         print(applicationDocumentDirectory)
