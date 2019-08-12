@@ -280,6 +280,11 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
     // MARK: - UITableViewDataSource
 
     // MARK: - UITableViewDelegate
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = .darkGray
+        cell.selectedBackgroundView = backgroundView
+    }
 
     // Only taps in the first 2 sections are valid
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {

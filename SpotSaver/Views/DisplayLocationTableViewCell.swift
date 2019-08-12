@@ -24,7 +24,7 @@ class DisplayLocationTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         let backgroundView = UIView()
-        backgroundView.backgroundColor = .darkGray
+        backgroundColor = .darkGray
         selectedBackgroundView = backgroundView
 
         photoImageView.layer.cornerRadius = photoImageView.bounds.size.width / 2
