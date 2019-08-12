@@ -19,6 +19,7 @@
 		0F407D1C2301CF92002B8868 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F407D1B2301CF92002B8868 /* UIImage+Resize.swift */; };
 		0F407D1E2301D86F002B8868 /* String+AddText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F407D1D2301D86F002B8868 /* String+AddText.swift */; };
 		0F407D202301F7C5002B8868 /* SpotSaverTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F407D1F2301F7C5002B8868 /* SpotSaverTabBarController.swift */; };
+		0F407D222301F9AD002B8868 /* LightVersionImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F407D212301F9AD002B8868 /* LightVersionImagePickerController.swift */; };
 		0F46057822F9D475004B1C29 /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F46057622F9D475004B1C29 /* Location+CoreDataClass.swift */; };
 		0F46057922F9D475004B1C29 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F46057722F9D475004B1C29 /* Location+CoreDataProperties.swift */; };
 		0F46057C22F9DD83004B1C29 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F46057B22F9DD83004B1C29 /* Functions.swift */; };
@@ -43,6 +44,7 @@
 		0F407D1B2301CF92002B8868 /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		0F407D1D2301D86F002B8868 /* String+AddText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+AddText.swift"; sourceTree = "<group>"; };
 		0F407D1F2301F7C5002B8868 /* SpotSaverTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotSaverTabBarController.swift; sourceTree = "<group>"; };
+		0F407D212301F9AD002B8868 /* LightVersionImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightVersionImagePickerController.swift; sourceTree = "<group>"; };
 		0F46057622F9D475004B1C29 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0F46057722F9D475004B1C29 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0F46057B22F9DD83004B1C29 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				0F11B14522F7592E00F6D17F /* CategoryPickerTableViewController.swift */,
 				0F46057D22F9F42E004B1C29 /* DisplayLocationsTableViewController.swift */,
 				0F46058422FA65F3004B1C29 /* MapViewController.swift */,
+				0F407D212301F9AD002B8868 /* LightVersionImagePickerController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				0F46057922F9D475004B1C29 /* Location+CoreDataProperties.swift in Sources */,
 				0F46057822F9D475004B1C29 /* Location+CoreDataClass.swift in Sources */,
 				0F46057C22F9DD83004B1C29 /* Functions.swift in Sources */,
+				0F407D222301F9AD002B8868 /* LightVersionImagePickerController.swift in Sources */,
 				0F1EE43322F3BC8C00018AA5 /* SpotSaver.xcdatamodeld in Sources */,
 				0F407D1C2301CF92002B8868 /* UIImage+Resize.swift in Sources */,
 				0F11B14422F6993000F6D17F /* LocationDetailsTableViewController.swift in Sources */,

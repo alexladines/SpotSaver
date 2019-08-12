@@ -6,4 +6,10 @@
 //  Copyright © 2019 Alex Ladines. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class LightVersionImagePickerController: UIImagePickerController {
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+}

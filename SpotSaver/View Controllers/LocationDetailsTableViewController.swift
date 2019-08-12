@@ -205,7 +205,8 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
     }
 
     func takePhotoWithCamera() {
-        let imagePicker = UIImagePickerController()
+        let imagePicker = LightVersionImagePickerController()
+        imagePicker.view.tintColor = view.tintColor
         imagePicker.sourceType = .camera
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
@@ -213,7 +214,8 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
     }
 
     func choosePhotoFromLibrary() {
-        let imagePicker = UIImagePickerController()
+        let imagePicker = LightVersionImagePickerController()
+        imagePicker.view.tintColor = view.tintColor
         imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
