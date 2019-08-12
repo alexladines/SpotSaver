@@ -26,6 +26,10 @@ class DisplayLocationTableViewCell: UITableViewCell {
         let backgroundView = UIView()
         backgroundView.backgroundColor = .darkGray
         selectedBackgroundView = backgroundView
+
+        photoImageView.layer.cornerRadius = photoImageView.bounds.size.width / 2
+        photoImageView.clipsToBounds = true
+        separatorInset = UIEdgeInsets(top: 0, left: 82, bottom: 0, right: 0)
     }
 
     // MARK: - Methods
