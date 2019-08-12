@@ -23,7 +23,9 @@ class DisplayLocationTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = .darkGray
+        selectedBackgroundView = backgroundView
     }
 
     // MARK: - Methods
@@ -54,7 +56,7 @@ class DisplayLocationTableViewCell: UITableViewCell {
             return image.resized(withBounds: CGSize(width: 52, height: 52))
         }
         else {
-            return UIImage()
+            return UIImage(named: "No Photo")!
         }
     }
 
