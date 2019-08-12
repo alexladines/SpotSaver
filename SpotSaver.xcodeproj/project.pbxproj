@@ -18,6 +18,7 @@
 		0F1EE44722F3BFE300018AA5 /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1EE44622F3BFE300018AA5 /* CurrentLocationViewController.swift */; };
 		0F407D1C2301CF92002B8868 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F407D1B2301CF92002B8868 /* UIImage+Resize.swift */; };
 		0F407D1E2301D86F002B8868 /* String+AddText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F407D1D2301D86F002B8868 /* String+AddText.swift */; };
+		0F407D202301F7C5002B8868 /* SpotSaverTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F407D1F2301F7C5002B8868 /* SpotSaverTabBarController.swift */; };
 		0F46057822F9D475004B1C29 /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F46057622F9D475004B1C29 /* Location+CoreDataClass.swift */; };
 		0F46057922F9D475004B1C29 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F46057722F9D475004B1C29 /* Location+CoreDataProperties.swift */; };
 		0F46057C22F9DD83004B1C29 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F46057B22F9DD83004B1C29 /* Functions.swift */; };
@@ -41,6 +42,7 @@
 		0F1EE44622F3BFE300018AA5 /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewController.swift; sourceTree = "<group>"; };
 		0F407D1B2301CF92002B8868 /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		0F407D1D2301D86F002B8868 /* String+AddText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+AddText.swift"; sourceTree = "<group>"; };
+		0F407D1F2301F7C5002B8868 /* SpotSaverTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotSaverTabBarController.swift; sourceTree = "<group>"; };
 		0F46057622F9D475004B1C29 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0F46057722F9D475004B1C29 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0F46057B22F9DD83004B1C29 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 		0F1EE44122F3BCDE00018AA5 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0F407D1F2301F7C5002B8868 /* SpotSaverTabBarController.swift */,
 				0F1EE44622F3BFE300018AA5 /* CurrentLocationViewController.swift */,
 				0F11B14322F6993000F6D17F /* LocationDetailsTableViewController.swift */,
 				0F11B14522F7592E00F6D17F /* CategoryPickerTableViewController.swift */,
@@ -252,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F407D202301F7C5002B8868 /* SpotSaverTabBarController.swift in Sources */,
 				0F46058022F9FFA7004B1C29 /* DisplayLocationTableViewCell.swift in Sources */,
 				0F46057922F9D475004B1C29 /* Location+CoreDataProperties.swift in Sources */,
 				0F46057822F9D475004B1C29 /* Location+CoreDataClass.swift in Sources */,

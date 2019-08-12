@@ -501,10 +501,10 @@
             </objects>
             <point key="canvasLocation" x="4283" y="14"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Spot Saver Tab Bar Controller-->
         <scene sceneID="Jqe-nr-HXs">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="G3i-At-miV" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="G3i-At-miV" customClass="SpotSaverTabBarController" customModule="SpotSaver" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7oF-le-SRn">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
