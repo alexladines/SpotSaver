@@ -37,22 +37,9 @@ class DisplayLocationTableViewCell: UITableViewCell {
 
         if let placemark = location.placemark {
             var text = ""
-            // House Number
-            if let s = placemark.subThoroughfare {
-                text += s + " "
-
-            }
-            // Street Name
-            if let s = placemark.thoroughfare {
-                text += s + ", "
-            }
-
-            // City
-            if let s = placemark.locality {
-                text += s
-
-            }
-
+            text.add(text: placemark.subThoroughfare)
+            text.add(text: placemark.thoroughfare, separatedBy: " ")
+            text.add(text: placemark.locality, separatedBy: ", ")
             addressLabel.text = text
         }
         else {

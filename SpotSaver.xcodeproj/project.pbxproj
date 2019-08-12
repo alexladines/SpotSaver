@@ -17,6 +17,7 @@
 		0F1EE43822F3BC8E00018AA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F1EE43622F3BC8E00018AA5 /* LaunchScreen.storyboard */; };
 		0F1EE44722F3BFE300018AA5 /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1EE44622F3BFE300018AA5 /* CurrentLocationViewController.swift */; };
 		0F407D1C2301CF92002B8868 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F407D1B2301CF92002B8868 /* UIImage+Resize.swift */; };
+		0F407D1E2301D86F002B8868 /* String+AddText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F407D1D2301D86F002B8868 /* String+AddText.swift */; };
 		0F46057822F9D475004B1C29 /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F46057622F9D475004B1C29 /* Location+CoreDataClass.swift */; };
 		0F46057922F9D475004B1C29 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F46057722F9D475004B1C29 /* Location+CoreDataProperties.swift */; };
 		0F46057C22F9DD83004B1C29 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F46057B22F9DD83004B1C29 /* Functions.swift */; };
@@ -39,6 +40,7 @@
 		0F1EE43922F3BC8E00018AA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F1EE44622F3BFE300018AA5 /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewController.swift; sourceTree = "<group>"; };
 		0F407D1B2301CF92002B8868 /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
+		0F407D1D2301D86F002B8868 /* String+AddText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+AddText.swift"; sourceTree = "<group>"; };
 		0F46057622F9D475004B1C29 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0F46057722F9D475004B1C29 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0F46057B22F9DD83004B1C29 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			children = (
 				0F46057B22F9DD83004B1C29 /* Functions.swift */,
 				0F407D1B2301CF92002B8868 /* UIImage+Resize.swift */,
+				0F407D1D2301D86F002B8868 /* String+AddText.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				0F11B14422F6993000F6D17F /* LocationDetailsTableViewController.swift in Sources */,
 				0F11B14822F7764500F6D17F /* HudView.swift in Sources */,
 				0F46058522FA65F3004B1C29 /* MapViewController.swift in Sources */,
+				0F407D1E2301D86F002B8868 /* String+AddText.swift in Sources */,
 				0F1EE44722F3BFE300018AA5 /* CurrentLocationViewController.swift in Sources */,
 				0F46057E22F9F42E004B1C29 /* DisplayLocationsTableViewController.swift in Sources */,
 				0F11B14622F7592E00F6D17F /* CategoryPickerTableViewController.swift in Sources */,
