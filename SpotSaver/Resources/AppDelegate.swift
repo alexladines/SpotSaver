@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        customizeAppearance()
 
         // Get reference to the Managed Object Context
         let tabVC = window?.rootViewController as! UITabBarController
@@ -115,6 +116,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let tabVC = self.window!.rootViewController!
             tabVC.present(alert, animated: true)
         }
+    }
+
+    func customizeAppearance() {
+        UINavigationBar.appearance().barTintColor = .black
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        UITabBar.appearance().barTintColor = .black
+        UITabBar.appearance().tintColor = UIColor(red: 255/255.0, green: 238/255.0, blue: 136/255.0, alpha: 1.0)
     }
 }
 

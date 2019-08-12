@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tag-->
+        <!--CurrentLocationViewController-->
         <scene sceneID="zxL-TE-6Pl">
             <objects>
-                <viewController id="Xyu-PG-aiM" customClass="CurrentLocationViewController" customModule="SpotSaver" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Xyu-PG-aiM" userLabel="CurrentLocationViewController" customClass="CurrentLocationViewController" customModule="SpotSaver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D5j-k8-GAk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,65 +22,69 @@
                                 <rect key="frame" x="20" y="137" width="68" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Longitude:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZv-Ke-CFb">
                                 <rect key="frame" x="20" y="209" width="82" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(Latitude goes here)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQz-2l-W7O">
-                                <rect key="frame" x="199" y="137" width="156" height="21"/>
+                                <rect key="frame" x="199" y="137" width="167" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(Longitude goes here)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kV3-Hy-WEV">
-                                <rect key="frame" x="199" y="209" width="170" height="21"/>
+                                <rect key="frame" x="199" y="209" width="181" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(Address goes here)" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rox-zA-qNd">
                                 <rect key="frame" x="20" y="317" width="374" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap 'Get My Location' to get started" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="040-jf-PDo">
-                                <rect key="frame" x="70" y="62" width="274" height="21"/>
+                                <rect key="frame" x="50" y="96" width="274" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7V5-bX-XZV">
-                                <rect key="frame" x="116" y="384" width="88" height="30"/>
+                                <rect key="frame" x="127" y="526" width="120" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Tag Location"/>
                                 <connections>
                                     <segue destination="wMq-2E-3zi" kind="show" identifier="TagLocation" id="043-HY-w12"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Stl-FV-4is">
-                                <rect key="frame" x="104" y="443" width="112" height="30"/>
+                                <rect key="frame" x="110" y="585" width="154" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Get My Location"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Get My Location">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="getMyLocationButtonTapped:" destination="Xyu-PG-aiM" eventType="touchUpInside" id="8qZ-IB-CwF"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Wdk-1l-s10"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Tag" id="EAy-uH-7bB"/>
+                    <tabBarItem key="tabBarItem" title="Tag" selectedImage="Tag" id="EAy-uH-7bB"/>
                     <navigationItem key="navigationItem" id="R9X-Se-aYe"/>
                     <connections>
                         <outlet property="addressLabel" destination="rox-zA-qNd" id="C6g-Bc-TWo"/>
@@ -95,10 +99,10 @@
             </objects>
             <point key="canvasLocation" x="2720" y="13"/>
         </scene>
-        <!--Display Locations Table View Controller-->
+        <!--DisplayLocationsTableViewController-->
         <scene sceneID="iBh-rL-8OY">
             <objects>
-                <tableViewController id="tBd-AP-Lzm" customClass="DisplayLocationsTableViewController" customModule="SpotSaver" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="tBd-AP-Lzm" userLabel="DisplayLocationsTableViewController" customClass="DisplayLocationsTableViewController" customModule="SpotSaver" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1Q7-Ve-smD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -160,6 +164,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="LCD-rw-doJ"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hwj-SM-ZId" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -169,7 +174,7 @@
         <scene sceneID="Vz8-sS-u4N">
             <objects>
                 <navigationController id="pKY-Tj-0cc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Locations" id="dwc-zv-FGE"/>
+                    <tabBarItem key="tabBarItem" title="Locations" image="Locations" id="dwc-zv-FGE"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WEg-uv-IK9">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -182,10 +187,10 @@
             </objects>
             <point key="canvasLocation" x="1833" y="743"/>
         </scene>
-        <!--Map-->
+        <!--MapViewController-->
         <scene sceneID="SH5-t4-ldz">
             <objects>
-                <viewController id="wBR-6a-f2O" customClass="MapViewController" customModule="SpotSaver" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wBR-6a-f2O" userLabel="MapViewController" customClass="MapViewController" customModule="SpotSaver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8BR-dU-gCV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -224,10 +229,10 @@
             </objects>
             <point key="canvasLocation" x="2771.0144927536235" y="1449.7767857142856"/>
         </scene>
-        <!--Tag Location-->
+        <!--LocationDetailsTableViewController-->
         <scene sceneID="Bfy-RM-xdr">
             <objects>
-                <tableViewController id="wMq-2E-3zi" customClass="LocationDetailsTableViewController" customModule="SpotSaver" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="wMq-2E-3zi" userLabel="LocationDetailsTableViewController" customClass="LocationDetailsTableViewController" customModule="SpotSaver" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="uT3-KS-IQn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -516,11 +521,11 @@
             </objects>
             <point key="canvasLocation" x="568" y="326"/>
         </scene>
-        <!--Item-->
+        <!--Tag-->
         <scene sceneID="m4y-mA-KU0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="glw-KF-v1k" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="iQU-JQ-dn3"/>
+                    <tabBarItem key="tabBarItem" title="Tag" image="Tag" id="iQU-JQ-dn3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0mc-rB-bkw">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -539,7 +544,7 @@
         <scene sceneID="UcB-Pf-lli">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iaD-eJ-E5w" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" id="guo-RU-RCW"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="Map" id="guo-RU-RCW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="snE-2S-AZN">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -555,7 +560,13 @@
             <point key="canvasLocation" x="1860.8695652173915" y="1449.7767857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Locations" width="30" height="30"/>
+        <image name="Map" width="30" height="30"/>
+        <image name="Tag" width="30" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nEu-xI-GSH"/>
+        <segue reference="043-HY-w12"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="1" green="0.93333333333333335" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
 </document>
