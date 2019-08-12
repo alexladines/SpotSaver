@@ -68,6 +68,12 @@ class CategoryPickerTableViewController: UITableViewController {
     }
 
     // MARK: - UITableViewDelegate
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = .darkGray
+        cell.selectedBackgroundView = backgroundView
+    }
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Check if the row tapped is the one with the checkmark
         if indexPath.row != selectedIndexPath.row {
