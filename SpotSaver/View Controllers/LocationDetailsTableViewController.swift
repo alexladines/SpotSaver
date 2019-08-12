@@ -80,6 +80,7 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
         else {
             hudView.text = "Tagged"
             location = Location(context: managedObjectContext)
+            location.photoID = nil
         }
 
         // Set properties
@@ -91,7 +92,21 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
         location.placemark = placemark
 
         // Save Photo
-        
+        if let image = image {
+            if !location.hasPhoto {
+                location.photoID = Location.nextPhotoID() as NSNumber
+            }
+
+            if let data = image.jpegData(compressionQuality: 0.5) {
+                do {
+                    try data.write(to: location.photoURL, options: .atomic)
+                }
+                catch {
+                    print("Error writing to file: \(error)")
+                }
+            }
+        }
+
         // Save object context
         do {
             try managedObjectContext.save()
@@ -117,7 +132,14 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
         // Check if this was from the editing segue
         if let location = locationToEdit {
             title = "Edit Location"
+
+            if location.hasPhoto {
+                if let theImage = location.photoImage {
+                    image = theImage
+                }
+            }
         }
+        
 
         descriptionTextView.text = descriptionText
         categoryLabel.text = ""
