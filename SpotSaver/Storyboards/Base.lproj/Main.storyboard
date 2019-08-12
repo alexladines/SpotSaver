@@ -111,17 +111,24 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="57.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z24-4E-dNO">
+                                            <rect key="frame" x="16" y="2" width="52" height="52"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="52" id="H0Z-BH-FwO"/>
+                                                <constraint firstAttribute="height" constant="52" id="aGh-KU-ovt"/>
+                                            </constraints>
+                                        </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="GsI-zb-aOT">
-                                            <rect key="frame" x="20" y="6" width="374" height="45.5"/>
+                                            <rect key="frame" x="76" y="8.5" width="330" height="40.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5H-qS-OKd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="25.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="330" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uy6-S6-CW4">
-                                                    <rect key="frame" x="0.0" y="28.5" width="374" height="17"/>
+                                                    <rect key="frame" x="0.0" y="23.5" width="330" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -130,15 +137,19 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="GsI-zb-aOT" firstAttribute="leading" secondItem="Jgy-kb-RoY" secondAttribute="leading" constant="20" id="GXW-QS-Xvw"/>
-                                        <constraint firstAttribute="bottom" secondItem="GsI-zb-aOT" secondAttribute="bottom" constant="6" id="K3c-Rs-gv5"/>
-                                        <constraint firstAttribute="trailing" secondItem="GsI-zb-aOT" secondAttribute="trailing" constant="20" id="bYz-h8-APE"/>
-                                        <constraint firstItem="GsI-zb-aOT" firstAttribute="top" secondItem="Jgy-kb-RoY" secondAttribute="top" constant="6" id="gUw-5r-UDp"/>
+                                        <constraint firstItem="GsI-zb-aOT" firstAttribute="leading" secondItem="z24-4E-dNO" secondAttribute="trailing" constant="8" id="DRP-VI-Qse"/>
+                                        <constraint firstItem="z24-4E-dNO" firstAttribute="top" secondItem="Jgy-kb-RoY" secondAttribute="top" constant="2" id="Dqq-p1-ZJ8"/>
+                                        <constraint firstItem="z24-4E-dNO" firstAttribute="leading" secondItem="Jgy-kb-RoY" secondAttribute="leading" constant="16" id="YHq-OE-qLw"/>
+                                        <constraint firstAttribute="trailing" secondItem="GsI-zb-aOT" secondAttribute="trailing" constant="8" id="evx-Ra-s6b"/>
+                                        <constraint firstAttribute="bottom" secondItem="GsI-zb-aOT" secondAttribute="bottom" constant="8.5" id="gFl-Bb-UMd"/>
+                                        <constraint firstItem="GsI-zb-aOT" firstAttribute="centerY" secondItem="Jgy-kb-RoY" secondAttribute="centerY" id="gbV-7F-kbg"/>
+                                        <constraint firstItem="GsI-zb-aOT" firstAttribute="top" secondItem="Jgy-kb-RoY" secondAttribute="top" constant="8.5" id="lag-Kb-QfV"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="addressLabel" destination="uy6-S6-CW4" id="gvT-m1-3O2"/>
                                     <outlet property="descriptionLabel" destination="v5H-qS-OKd" id="shF-QA-YAJ"/>
+                                    <outlet property="photoImageView" destination="z24-4E-dNO" id="PcD-vg-qOP"/>
                                     <segue destination="wMq-2E-3zi" kind="show" identifier="EditLocation" id="nEu-xI-GSH"/>
                                 </connections>
                             </tableViewCell>
@@ -545,6 +556,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Gnf-E9-cBa"/>
+        <segue reference="nEu-xI-GSH"/>
     </inferredMetricsTieBreakers>
 </document>
