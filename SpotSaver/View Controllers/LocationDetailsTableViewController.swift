@@ -90,6 +90,8 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
         location.date = date
         location.placemark = placemark
 
+        // Save Photo
+        
         // Save object context
         do {
             try managedObjectContext.save()
