@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import CoreData
+import AudioToolbox
 
 // For Info.plist -> Need Privacy - Location When In Usage Description
 // For Info.plist ->
@@ -40,6 +41,9 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     var placemark: CLPlacemark?
     var performingReverseGeocoding = false
     var lastGeocodingError: Error?
+
+    // For sounds
+    var soundID: SystemSoundID = 0 // 0 = no sound loaded yet
 
     // MARK: - IBOutlets
     @IBOutlet weak var containerView: UIView!
@@ -93,6 +97,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadSoundEffect("Sound.caf")
         updateLabels()
     }
 
@@ -268,6 +273,27 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         }
     }
 
+    // MARK: - Sound Effects
+    func loadSoundEffect(_ name: String) {
+        if let path = Bundle.main.path(forResource: name, ofType: nil) {
+            let fileURL = URL(fileURLWithPath: path, isDirectory: false)
+            let error = AudioServicesCreateSystemSoundID(fileURL as CFURL, &soundID)
+
+            if error != kAudioServicesNoError {
+                print("Error code \(error) loading sound: \(path)")
+            }
+        }
+    }
+
+    func unloadSoundEffect() {
+        AudioServicesDisposeSystemSoundID(soundID)
+        soundID = 0
+    }
+
+    func playSoundEffect() {
+        AudioServicesPlaySystemSound(soundID)
+    }
+
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "TagLocation" {
@@ -340,6 +366,10 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
                 geocoder.reverseGeocodeLocation(newLocation) { (placemarks, error) in
                     self.lastGeocodingError = error
                     if error == nil, let p = placemarks, !p.isEmpty {
+                        if self.placemark == nil {
+                            print("First TIme!")
+                            self.playSoundEffect()
+                        }
                         self.placemark = p.last!
                     }
                     else {
