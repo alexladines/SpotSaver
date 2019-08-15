@@ -18,7 +18,7 @@ private let dateFormatter: DateFormatter = {
     return formatter
 }()
 
-class LocationDetailsTableViewController: UITableViewController, CategoryPickerTableViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class LocationDetailsTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     // MARK: - Properties
     var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
@@ -307,12 +307,7 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
         }
     }
 
-    // MARK: - CategoryPickerTableViewControllerDelegate
-    func categoryPickerTableViewController(_ controller: CategoryPickerTableViewController, didFinishSelecting category: String) {
-        categoryName = category
-        categoryLabel.text = categoryName
-        navigationController?.popViewController(animated: true)
-    }
+
 
     // MARK: - UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -323,6 +318,15 @@ class LocationDetailsTableViewController: UITableViewController, CategoryPickerT
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+// MARK: - CategoryPickerTableViewControllerDelegate
+extension LocationDetailsTableViewController: CategoryPickerTableViewControllerDelegate {
+    func categoryPickerTableViewController(_ controller: CategoryPickerTableViewController, didFinishSelecting category: String) {
+        categoryName = category
+        categoryLabel.text = categoryName
+        navigationController?.popViewController(animated: true)
     }
 }
 
