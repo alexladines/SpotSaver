@@ -10,17 +10,12 @@ import UIKit
 
 class DisplayLocationTableViewCell: UITableViewCell {
 
-    // MARK: - Properties
-
     // MARK: - IBOutlets
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
 
-    // MARK: - IBActions
-
     // MARK: - Life Cycle
-
     override func awakeFromNib() {
         super.awakeFromNib()
         let backgroundView = UIView()
@@ -63,9 +58,5 @@ class DisplayLocationTableViewCell: UITableViewCell {
             return UIImage(named: "No Photo")!
         }
     }
-
-    // MARK: - Navigation
-
-    // MARK: - Data Persistance
 
 }

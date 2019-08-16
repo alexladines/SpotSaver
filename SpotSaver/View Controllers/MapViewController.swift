@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import MapKit
 
-class MapViewController: UIViewController, MKMapViewDelegate {
+class MapViewController: UIViewController {
     // MARK: - Properties
     var managedObjectContext: NSManagedObjectContext! {
         didSet {
@@ -127,10 +127,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             vc.locationToEdit = location
         }
     }
+}
 
-    // MARK: - Data Persistance
-
-    // MARK: - MKMapViewDelegate
+// MARK: - MKMapViewDelegate
+extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         // 1 Only make annotations for locations, not the blue location dot
         guard annotation is Location else {
@@ -172,7 +172,4 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 
         return annotationView
     }
-
-
-
 }

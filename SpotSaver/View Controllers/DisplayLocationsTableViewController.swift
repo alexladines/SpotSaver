@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import CoreData
 
-class DisplayLocationsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class DisplayLocationsTableViewController: UITableViewController {
     // MARK: - Properties
     var managedObjectContext: NSManagedObjectContext!
     lazy var fetchedResultsController: NSFetchedResultsController<Location> = {
@@ -34,10 +34,6 @@ class DisplayLocationsTableViewController: UITableViewController, NSFetchedResul
         fetchedResultsController.delegate = self
         return fetchedResultsController
     }()
-
-    // MARK: - IBOutlets
-
-    // MARK: - IBActions
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -73,10 +69,10 @@ class DisplayLocationsTableViewController: UITableViewController, NSFetchedResul
         }
     }
 
-    // MARK: - Data Persistance
+}
 
-    // MARK: - UITableViewDataSource
-
+// MARK: - UITableViewDataSource
+extension DisplayLocationsTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController.sections!.count
     }
@@ -85,7 +81,7 @@ class DisplayLocationsTableViewController: UITableViewController, NSFetchedResul
         let sectionInfo = fetchedResultsController.sections![section]
         return sectionInfo.name.uppercased()
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = fetchedResultsController.sections![section]
         return sectionInfo.numberOfObjects
@@ -95,13 +91,15 @@ class DisplayLocationsTableViewController: UITableViewController, NSFetchedResul
         let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath) as! DisplayLocationTableViewCell
 
         let location = fetchedResultsController.object(at: indexPath)
-        
+
         cell.configure(for: location)
 
         return cell
     }
+}
 
-    // MARK: - UITableViewDelegate
+// MARK: - UITableViewDelegate
+extension DisplayLocationsTableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let location = fetchedResultsController.object(at: indexPath)
@@ -134,8 +132,10 @@ class DisplayLocationsTableViewController: UITableViewController, NSFetchedResul
         view.addSubview(separator)
         return view
     }
+}
 
-    // MARK: - NSFetchedResultsControllerDelegate
+// MARK: - NSFetchedResultsControllerDelegate
+extension DisplayLocationsTableViewController: NSFetchedResultsControllerDelegate {
 
     // Start typing willchangeContent for auto-complete
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -190,5 +190,4 @@ class DisplayLocationsTableViewController: UITableViewController, NSFetchedResul
         print("*** controllerDidChangeContent")
         tableView.endUpdates()
     }
-
 }

@@ -32,6 +32,7 @@ public class Location: NSManagedObject, MKAnnotation {
         return applicationDocumentDirectory.appendingPathComponent(fileName)
     }
 
+    
     var photoImage: UIImage? {
         return UIImage(contentsOfFile: photoURL.path)
     }
