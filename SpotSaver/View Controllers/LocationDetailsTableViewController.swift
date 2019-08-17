@@ -18,7 +18,7 @@ private let dateFormatter: DateFormatter = {
     return formatter
 }()
 
-class LocationDetailsTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class LocationDetailsTableViewController: UITableViewController, UINavigationControllerDelegate {
 
     // MARK: - Properties
     var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
@@ -309,7 +309,12 @@ class LocationDetailsTableViewController: UITableViewController, UIImagePickerCo
 
 
 
-    // MARK: - UIImagePickerControllerDelegate
+
+}
+
+// MARK: - UIImagePickerControllerDelegate
+extension LocationDetailsTableViewController: UIImagePickerControllerDelegate {
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
 
