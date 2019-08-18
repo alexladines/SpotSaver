@@ -275,11 +275,10 @@ class LocationDetailsTableViewController: UITableViewController, UINavigationCon
         }
     }
 
-    // MARK: - Data Persistance
+}
 
-    // MARK: - UITableViewDataSource
-
-    // MARK: - UITableViewDelegate
+// MARK: - UITableViewDelegate
+extension LocationDetailsTableViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let backgroundView = UIView()
         backgroundView.backgroundColor = .darkGray
@@ -306,10 +305,6 @@ class LocationDetailsTableViewController: UITableViewController, UINavigationCon
             pickPhoto()
         }
     }
-
-
-
-
 }
 
 // MARK: - UIImagePickerControllerDelegate
