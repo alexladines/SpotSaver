@@ -252,6 +252,7 @@ class LocationDetailsTableViewController: UITableViewController, UINavigationCon
         present(alert, animated: true)
     }
 
+    // Check if going to home screen
     func listenForBackgroundNotification() {
         NotificationCenter.default.addObserver(forName: UIApplication.didEnterBackgroundNotification, object: nil, queue: OperationQueue.main) { [weak self] _ in
 
