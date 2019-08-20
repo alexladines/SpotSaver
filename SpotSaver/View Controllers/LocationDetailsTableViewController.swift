@@ -231,6 +231,7 @@ class LocationDetailsTableViewController: UITableViewController, UINavigationCon
         }
     }
 
+    // For UIPickerController
     func showPhotoMenu() {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
