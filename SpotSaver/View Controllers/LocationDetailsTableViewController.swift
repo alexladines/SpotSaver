@@ -204,6 +204,7 @@ class LocationDetailsTableViewController: UITableViewController, UINavigationCon
         // Also on storyboard -> Table View -> Dismiss keyboard when scrolling.
     }
 
+    // For UIPickerController
     func takePhotoWithCamera() {
         let imagePicker = LightVersionImagePickerController()
         imagePicker.view.tintColor = view.tintColor
@@ -231,7 +232,7 @@ class LocationDetailsTableViewController: UITableViewController, UINavigationCon
         }
     }
 
-    // For UIPickerController
+
     func showPhotoMenu() {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
